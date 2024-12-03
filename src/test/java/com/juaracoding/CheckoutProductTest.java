@@ -57,23 +57,22 @@ public class CheckoutProductTest {
 
         }
 
+        @Then("Customer should be redirected to the Overview page")
+        public void customer_should_be_redirected_to_the_Checkout_Overview_page(){
+            Assert.assertEquals(checkoutProductPage.getTxtOverView(),"Checkout: Overview");
+        }
 
 
+        @And("Customer click button finish")
+        public void customer_click_button_finish(){
+        checkoutProductPage.setBtnFinish();
+            Utils.delay(2);
+        }
 
-
-
-//
-//        @And("Customer click button continue")
-//        public void customer_click_button_continue(){
-//        checkoutProductPage.setBtnContinue();
-//            Utils.delay(2);
-//        }
-//
-//        @And("Customer click button finish")
-//        public void customer_click_button_finish(){
-//        checkoutProductPage.setBtnFinish();
-//            Utils.delay(2);
-//        }
+        @And("Customer should be redirected to the Complete page")
+        public void customer_should_be_redirected_to_the_complete_page(){
+        Assert.assertEquals(checkoutProductPage.getTxtComplete(),"Checkout: Complete!");
+        }
 //
 //        @Then("Customer click button back home")
 //        public void customer_click_button_back_home(){

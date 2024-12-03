@@ -43,6 +43,22 @@ public class CheckoutProductPage {
     @FindBy(xpath = "//*[@id=\"checkout_info_container\"]/div/form/div[1]/div[4]/h3")
     private WebElement txtErrorMessage;
 
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
+    private WebElement txtOverview;
+
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
+    private WebElement txtComplete;
+
+
+
+
+    public String getTxtComplete(){
+        return txtComplete.getText();
+    }
+    public String getTxtOverView(){
+        return txtOverview.getText();
+    }
+
     public String getTxtErrorMessage(){
         return txtErrorMessage.getText();
     }

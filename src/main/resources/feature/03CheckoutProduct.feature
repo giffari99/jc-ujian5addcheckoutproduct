@@ -23,3 +23,17 @@ Feature: Checkout Two Product
       | Ahmad     |          | 12630 | Error: Last Name is required   |
       |           | Sobrani  | 12630 | Error: First Name is required  |
 
+    # --------- END NEGATIVE TEST -------------------
+
+  Scenario Outline: Customer Checkout Product with valid information
+    Given Customer input firstname "<firstname>" lastname "<lastname>" and postal code "<code>"
+    When Customer click button continue
+    Then Customer should be redirected to the Overview page
+    And Customer click button finish
+    And Customer should be redirected to the Complete page
+    Examples:
+      | firstname | lastname | code  |
+      | Ahmad     | Sobrani  | 12630 |
+
+
+

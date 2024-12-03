@@ -19,7 +19,8 @@ public enum ScenarioTest {
     T11("Customer Checkout Product with invalid information"),
     T12("Customer Checkout Product with invalid information"),
     T13("Customer Checkout Product with invalid information"),
-    T14("Customer Checkout Product with invalid information");
+    T14("Customer Checkout Product with invalid information"),
+    T15("Customer Checkout Product with valid information");
 
     private String scenarioTestName;
 
