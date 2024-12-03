@@ -31,6 +31,8 @@ Feature: Checkout Two Product
     Then Customer should be redirected to the Overview page
     And Customer click button finish
     And Customer should be redirected to the Complete page
+    And Customer click button back home
+    And Customer should be redirected to the Products page
     Examples:
       | firstname | lastname | code  |
       | Ahmad     | Sobrani  | 12630 |

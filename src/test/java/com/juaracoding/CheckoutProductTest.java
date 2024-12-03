@@ -1,6 +1,6 @@
 package com.juaracoding;
 
-import com.juaracoding.pages.AddProductPage;
+
 import com.juaracoding.pages.CheckoutProductPage;
 import com.juaracoding.utils.Utils;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -11,6 +11,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+
 
 public class CheckoutProductTest {
 
@@ -73,11 +74,14 @@ public class CheckoutProductTest {
         public void customer_should_be_redirected_to_the_complete_page(){
         Assert.assertEquals(checkoutProductPage.getTxtComplete(),"Checkout: Complete!");
         }
-//
-//        @Then("Customer click button back home")
-//        public void customer_click_button_back_home(){
-//        checkoutProductPage.setBtnHome();
-//        }
 
+        @And("Customer click button back home")
+        public void customer_click_button_back_home(){
+        checkoutProductPage.setBtnHome();
+        }
 
+        @And("Customer should be redirected to the Products page")
+        public void customer_should_be_redirected_to_the_products_page(){
+            Assert.assertEquals(checkoutProductPage.getTxtProduct(),"Products");
+        }
 }

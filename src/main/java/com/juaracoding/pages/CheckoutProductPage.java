@@ -49,8 +49,15 @@ public class CheckoutProductPage {
     @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
     private WebElement txtComplete;
 
+    @FindBy(xpath = "//span[@class='title']")
+    private WebElement txtProducts;
 
 
+
+
+    public String getTxtProduct(){
+        return txtProducts.getText();
+    }
 
     public String getTxtComplete(){
         return txtComplete.getText();
