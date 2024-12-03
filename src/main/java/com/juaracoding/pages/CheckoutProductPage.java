@@ -1,6 +1,7 @@
 package com.juaracoding.pages;
 
 import com.juaracoding.drivers.DriverSingleton;
+import com.juaracoding.utils.Utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +12,7 @@ public class CheckoutProductPage {
     WebDriver driver;
 
     public CheckoutProductPage(){
-    driver = DriverSingleton.getDriver();
+        driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver,this);
     }
 
@@ -36,22 +37,40 @@ public class CheckoutProductPage {
     @FindBy(xpath = "//button[@id='back-to-products']")
     private WebElement btnHome;
 
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
+    private WebElement txtInformation;
+
+    @FindBy(xpath = "//*[@id=\"checkout_info_container\"]/div/form/div[1]/div[4]/h3")
+    private WebElement txtErrorMessage;
+
+    public String getTxtErrorMessage(){
+        return txtErrorMessage.getText();
+    }
+
+
+    public String getTxtInformation(){
+        return txtInformation.getText();
+    }
+
 
     public void setBtnCheckout(){
         btnCheckout.click();
     }
 
-    public void setFirstName(String firstname){
-        firstName.sendKeys(firstname);
+    public void setInformation(String firstname, String lastname, String code) {
+        if (this.firstName != null || this.lastName != null || this.postalCode != null) {
+            Utils.delay(2);
+
+            this.firstName.clear();
+            this.lastName.clear();
+            this.postalCode.clear();
+        }
+
+        this.firstName.sendKeys(firstname);
+        this.lastName.sendKeys(lastname);
+        this.postalCode.sendKeys(code);
     }
 
-    public void setLastName(String lastname){
-        lastName.sendKeys(lastname);
-    }
-
-    public void setPostalCode(String postalcode){
-        postalCode.sendKeys(postalcode);
-    }
 
     public void setBtnContinue(){
         btnContinue.click();

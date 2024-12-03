@@ -24,6 +24,29 @@ public class AddProductPage {
         @FindBy(xpath = "//a[@class='shopping_cart_link']")
         private WebElement btnCart;
 
+        @FindBy(xpath = "//*[@id=\"shopping_cart_container\"]/a/span")
+        private WebElement totalProduct2;
+
+        @FindBy(xpath = "//*[@id=\"remove-sauce-labs-backpack\"]")
+        private WebElement btnRemove;
+
+        @FindBy(xpath = "//*[@id=\"shopping_cart_container\"]/a/span")
+        private WebElement totalProduct1;
+
+
+        public String getTotalProduct1(){
+            return totalProduct1.getText();
+        }
+
+
+        public void setBtnRemove(){
+            btnRemove.click();
+        }
+
+        public String getTotalProduct2(){
+            return totalProduct2.getText();
+        }
+
         public void setAddToCartOne(){
             addToCartOne.click();
         }
